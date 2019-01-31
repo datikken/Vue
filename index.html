@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>
+            <a href="http://google.com" target="blank" v-on:click.prevent="">Google</a>
+        </h2>
+        <h2 v-on:mousemove="handleMouseMove">
+            x: {{ x }} \ Y: {{ y }}
+            <span v-on:mousemove.stop>Не изменять</span>
+        </h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                x: 0,
+                y: 0
+            },
+            methods: {
+                handleMouseMove: function (event) {
+                    this.x = event.clientX
+                    this.y = event.clientY
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
